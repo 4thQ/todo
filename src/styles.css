@@ -1,0 +1,251 @@
+/* styles.css */
+
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  background: url(/images/Designer.png) center center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.second-header nav > *:hover {
+  color: rgb(230, 230, 141);
+}
+
+.first-header {
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  color: white;
+  border-bottom: 0.1px rgba(255, 255, 255, 0.349) solid;
+  font-size: 11px;
+}
+
+.second-header {
+  height: 9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-header > nav > button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-weight: bolder;
+}
+/* 
+homepage */
+.title {
+  color: white;
+  font-size: 90px;
+}
+
+.sub-title {
+  color: white;
+}
+
+.container {
+  text-align: center;
+  margin-top: 250px;
+}
+
+.container > * {
+  margin-top: 12px;
+}
+
+.bookTableBtn {
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(230, 230, 141);
+  border: 1px rgb(230, 230, 141) solid;
+}
+
+.bookTableBtn:hover {
+  color: white;
+
+  border-color: white;
+}
+
+.bookTableBtn:active {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: 1px white double;
+}
+
+/* menu */
+
+.menuContent {
+  justify-self: center;
+  background-color: rgba(37, 37, 37, 0.5);
+  width: 80vw;
+  height: 80vh;
+  color: white;
+  border: dotted 2px rgba(97, 97, 97, 0.356);
+  padding-top: 20px;
+}
+
+/* header */
+.menuHeader {
+  width: 100%;
+  height: 15%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuTitle {
+  padding-top: 20px;
+}
+/* 
+menu body */
+.menuBody {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box1 {
+  font-size: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.menuBody p1 {
+  color: rgb(230, 230, 141);
+  padding-left: 10px;
+}
+.menuBody ul {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.menuBody p {
+  font-size: 6px;
+}
+
+.menuBody pre {
+  padding-top: 10px;
+}
+
+.bookTableBtn2 {
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(230, 230, 141);
+  border: 1px rgb(230, 230, 141) solid;
+}
+
+.bookTableBtn2:active {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: 1px white double;
+}
+.bookTableBtn2:hover {
+  color: white;
+
+  border-color: white;
+}
+
+/* about us */
+
+.contactDiv {
+  justify-self: center;
+  background-color: yellow;
+  width: 95vw;
+  height: 80vh;
+  display: flex;
+}
+/* right */
+.rightDiv {
+  background-color: violet;
+  flex-grow: 9;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightTitle {
+  background-color: rgb(37, 37, 37);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.rightTitle h {
+  font-size: 60px;
+  font-weight: bolder;
+  color: white;
+}
+.rightTitle p {
+  color: rgb(255, 255, 255);
+}
+
+.rightBody {
+  background-color: rgb(37, 37, 37);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rightBox1,
+.rightBox2,
+.rightBox3,
+.rightBox4 {
+  height: 55px;
+  display: flex;
+  margin: 10px;
+}
+
+.rightBox3 {
+  height: 200px;
+}
+.rightBox1 input,
+.rightBox2 input,
+.rightBox3 input,
+.rightBox4 input,
+.rightBox4 button {
+  flex-grow: 1;
+  margin: 2px;
+}
+
+.leftDiv {
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(65, 65, 65);
+  color: white;
+}
+
+.leftTop {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.leftBottom {
+  flex-grow: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapApi {
+  width: 360px;
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+
+.rightBox4 button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+}

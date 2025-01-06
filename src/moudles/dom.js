@@ -1,3 +1,5 @@
+import { renderTask } from "./addTask";
+
 function Dialog() {
   const dialog = document.querySelector(".dialog");
 
@@ -16,7 +18,7 @@ function Dialog() {
   const submitBtn = document.querySelector(".submit-btn");
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e);
+    renderTask();
     dialog.close();
   });
 }

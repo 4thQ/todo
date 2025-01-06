@@ -34,8 +34,7 @@
     <div class="content">
       <div class="main-content">
         <div class="today"><h1>What is on your mind?</h1></div>
-        <h7 class="ntd">Nothing to do......</h7>
-        <div class="add-task"></div>   
+             <div class="add-task"></div>   
       </div>
     </div>
 
@@ -47,9 +46,9 @@
              
       <form id="task-form" class="task-form">
         <label for="task-title">Task Title:</label><br>
-        <input name="task-title" type="text" class="input-title"><br>
+        <input name="task-title" type="text" class="input-title" required><br>
     
-        <label for="task-priority">Priority:</label><br>
+        <label for="task-priority" class="task-priority">Priority:</label><br>
         <select name="task-priority" >
             <option value="select">Select Priority</option>
             <option value="Low">Low</option>
@@ -57,12 +56,11 @@
             <option value="High">High</option>
         </select><br>
     
-        <label for="schedule">Schedule:</label><br>
-        <input name="schedule" type="date" ><br>
-    
-        <label for="notes">Notes:</label><br>
-        <textarea name="notes" form="task-form">Enter text here...</textarea><br>
-    
+        <label for="task-due" class="task-due">Schedule:</label><br>
+    <input name="task-due" type="date"><br>
+
+    <label for="task-notes" class="task-notes">Notes:</label><br>
+    <textarea name="task-notes" form="task-form">Enter text here...</textarea><br>
         <button type="submit" class="submit-btn">Submit</button>
     </form>
 

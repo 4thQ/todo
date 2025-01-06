@@ -1,3 +1,5 @@
+let tasks = [];
+
 class Task {
   constructor(title, priority, due, notes) {
     this.title = title;
@@ -6,3 +8,5 @@ class Task {
     this.notes = notes;
   }
 }
+
+export { tasks, Task };

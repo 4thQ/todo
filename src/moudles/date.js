@@ -1,4 +1,8 @@
+import { format } from "date-fns";
+
 export function date() {
   const today = new Date().toLocaleDateString();
-  document.querySelector(".name-title").innerText = today;
+
+  const formatedDate = format(today, "yyyy-MM-dd");
+  document.querySelector(".name-title").innerText = formatedDate;
 }

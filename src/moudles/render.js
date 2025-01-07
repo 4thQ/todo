@@ -54,7 +54,7 @@ function addTaskToList() {
   const task = new Task(taskTitle, taskPriority, taskDue, taskNotes);
 
   tasks.push(task);
-
+  saveToLocalStorage();
   taskForm.reset(); // Clear the form
 }
 
@@ -78,6 +78,7 @@ function removeTask(li) {
         project.tasks.splice(taskIndex, 1);
       }
     });
+    saveToLocalStorage();
   });
 }
 
@@ -94,7 +95,7 @@ function addProjectToList() {
   let projectName = form.get("project-name");
   const project = new CreateProject(projectName);
   projects.push(project);
-
+  saveToLocalStorage();
   projectForm.reset();
 }
 function addProjectToOption() {
@@ -142,6 +143,7 @@ function renderProjects() {
       }
       projectBtn.remove();
       removeProjectBtn.remove();
+      saveToLocalStorage();
     });
 
     projectBtn.classList.add("li");
@@ -220,4 +222,29 @@ function renderAllTasks() {
     removeTask(li);
   });
 }
-export { render, renderProjects, renderProjectTasks, renderAllTasks };
+
+function saveToLocalStorage() {
+  localStorage.setItem("projects", JSON.stringify(projects));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function loadFromLocalStorage() {
+  const storedProjects = localStorage.getItem("projects");
+  const storedTasks = localStorage.getItem("tasks");
+
+  if (storedProjects) {
+    projects.push(...JSON.parse(storedProjects));
+  }
+
+  if (storedTasks) {
+    tasks.push(...JSON.parse(storedTasks));
+  }
+}
+export {
+  render,
+  renderProjects,
+  renderProjectTasks,
+  saveToLocalStorage,
+  loadFromLocalStorage,
+  renderAllTasks,
+};

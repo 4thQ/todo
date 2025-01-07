@@ -11,7 +11,6 @@ body {
 }
 
 .nav {
-  background-color: var(--primaryBackgroundColor);
   width: 300px;
   height: 100vh;
 }
@@ -73,46 +72,66 @@ body {
 
 .my-project {
   margin: 6px;
+  text-align: center;
 }
 
 .project-content {
-  border: var(--b);
-  height: 60px;
-  display: flex;
   gap: 160px;
-  padding-left: 10px;
+
   margin: 6px;
+
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+/* project btn */
+.li {
+  border: 2px solid rgb(0, 0, 0);
+  display: block;
+  margin-bottom: 3px;
+  width: 100%;
 }
 
 .add-project-btn {
-  width: 100%;
-  height: 100%;
+  width: 96%;
   display: flex;
   align-items: center;
-  border: none;
+  padding-left: 10px;
+  margin: 6px;
   background-color: transparent;
   font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.cancel-btn {
+  margin-left: 5px;
+  width: 70px;
 }
 
 .add-project-btn:hover {
   background-color: var(--hoverColor);
 }
 
-.delete-btn {
+.delete-btn,
+.edit-btn {
   border: 1px solid black;
   background-color: transparent;
 }
 
-.delete-btn:hover {
-  background-color: var(--hoverColor);
+li {
+  display: flex;
+}
+.edit-btn {
+  margin-left: auto;
+}
+.delete-btn {
+  margin-left: 4px;
 }
 
-.add-project {
-  height: 60px;
-  border: var(--b);
-  display: flex;
-  align-items: center;
-  margin: 6px;
+.delete-btn:hover,
+.edit-btn:hover {
+  background-color: var(--hoverColor);
 }
 
 /* ----------- */
@@ -133,31 +152,18 @@ body {
   padding: 10px;
 }
 
-.today {
-}
-
-li {
-  list-style: circle;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.task-delete {
-}
-
 /* add task dialog */
 .dialog,
 .dialog2 {
   margin-top: 200px;
   padding: 0;
-  height: 445px;
+  height: 500px;
   width: 500px;
 }
 
 .dialog::backdrop,
-.dialog2::backdrop {
-  background-color: rgba(40, 22, 22, 0.514);
+.project-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.514);
   backdrop-filter: blur(10px);
 }
 .dialog-title-box {
@@ -165,6 +171,9 @@ li {
   height: 55px;
   display: flex;
   border-bottom: solid black 1px;
+}
+li::marker {
+  color: white;
 }
 
 h2 {
@@ -230,59 +239,7 @@ select {
   margin-left: 190px;
 }
 
-.ntd {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  margin-left: 20px;
-  display: none;
-  /* remove the display to toggle nothing to do feature */
-}
-
 .task {
   margin: 6px;
   margin-top: 10px;
-}
-
-.task-checkbox {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 20px;
-  border: 3px solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-  margin-right: 6px;
-}
-
-.task-checkbox::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  background-color: CanvasText;
-}
-
-.task-checkbox:checked::before {
-  transform: scale(1);
-}
-
-.task-delete {
-  margin-left: 10px;
-  border: 3px solid black;
-  background-color: #fff;
-  height: 40px;
-}
-
-.task-edit {
-  margin-left: auto;
-  border: 3px solid black;
-  background-color: #fff;
-  height: 40px;
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="nav">
+      <div class="profile">
+        <div class="name-title">To DO LIST</div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="add-task-btn">+</button>
+        <button class="all-tasks-btn">All Tasks</button>
+        <button class="upcoming-btn">Upcoming</button>
+        <button class="completed-btn">Completed</button>
+      </div>
+
+      <div class="project-bar">
+        <dialog class="project-dialog">
+          <form class="project-form">
+            <input
+              type="text"
+              name="project-name"
+              placeholder="Project Name"
+              required
+            />
+            <button type="submit" class="submit-project-btn">
+              Submit Project</button
+            ><button class="cancel-btn">Cancel</button>
+          </form>
+        </dialog>
+
+        <h1 class="my-project">My Project</h1>
+        <div class="add-project">
+          <button class="add-project-btn">Add Project</button>
+        </div>
+        <div class="project-content">No Project created yet.</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="main-content">
+        <div class="today"><h1>What is on your mind?</h1></div>
+        <div class="add-task"></div>
+      </div>
+    </div>
+
+    <dialog class="dialog" id="task-dialog">
+      <div class="dialog-title-box">
+        <h2 id="dialog-title">Create a Task</h2>
+        <button class="close-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="10px"
+            viewBox="0 -960 960 960"
+            width="10px"
+            fill="black"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <form id="task-form" class="task-form">
+        <label for="task-title">Task Title:</label><br />
+        <input
+          name="task-title"
+          type="text"
+          class="input-title"
+          placeholder="Enter task title"
+          required
+        /><br />
+        <label for="task-priority" class="task-priority">Priority:</label><br />
+        <select name="task-priority">
+          <option value="select">Select Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option></select
+        ><br />
+        <label for="project-name" class="project-name"
+          >Select your project</label
+        >
+        <br />
+        <select name="project-name" class="project-dropdown">
+          <option value="none">Empty</option></select
+        ><br />
+        <label for="task-due" class="task-due">Schedule:</label><br />
+        <input name="task-due" type="date" required /><br />
+        <label for="task-notes" class="task-notes">Notes:</label><br />
+        <textarea
+          name="task-notes"
+          form="task-form"
+          placeholder="Enter text here"
+        ></textarea
+        ><br />
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </dialog>
+  </body>
+</html>

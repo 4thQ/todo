@@ -24,7 +24,7 @@ function render() {
     li.dataset.id = task.id; // Store task id in data attribute
     taskList.appendChild(li);
 
-    editTask(li);
+    // editTask(li);
     removeTask(li);
   });
 }
@@ -40,13 +40,15 @@ function addTaskToList() {
   let taskNotes = form.get("task-notes");
   let taskProject = form.get("project-name");
 
-  if (taskProject !== "") {
+  if (taskProject !== "none") {
     const project = projects.find((proj) => proj.name === taskProject);
     if (project) {
       project.tasks.push(new Task(taskTitle, taskPriority, taskDue, taskNotes));
 
       console.log(projects);
     }
+  } else {
+    console.log("No project selected");
   }
 
   const task = new Task(taskTitle, taskPriority, taskDue, taskNotes);
@@ -79,12 +81,12 @@ function removeTask(li) {
   });
 }
 
-function editTask(li) {
-  const editBtn = document.createElement("button");
-  editBtn.classList.add("edit-btn");
-  editBtn.textContent = "Edit";
-  li.appendChild(editBtn);
-}
+// function editTask(li) {
+//   const editBtn = document.createElement("button");
+//   editBtn.classList.add("edit-btn");
+//   editBtn.textContent = "Edit";
+//   li.appendChild(editBtn);
+// }
 
 function addProjectToList() {
   const projectForm = document.querySelector(".project-form");
@@ -101,11 +103,12 @@ function addProjectToOption() {
 
   projects.forEach((project) => {
     const projectName = document.querySelector(".project-dropdown");
+
     const projectOption = document.createElement("option");
     projectOption.textContent = project.name;
     projectOption.value = project.name;
 
-    projectName.appendChild(projectOption);
+    projectName.append(projectOption);
   });
 }
 
@@ -118,10 +121,33 @@ function renderProjects() {
 
   projects.forEach((project) => {
     const projectBtn = document.createElement("button");
+    const removeProjectBtn = document.createElement("button");
+    removeProjectBtn.classList.add("delete-project-btn");
+    removeProjectBtn.textContent = "Remove";
+
+    removeProjectBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const projectIndex = projects.findIndex(
+        (proj) => proj.name === project.name
+      );
+      if (projectIndex > -1) {
+        projects.splice(projectIndex, 1);
+        const projectDropdown = document.querySelector(".project-dropdown");
+        const optionToRemove = projectDropdown.querySelector(
+          `option[value="${project.name}"]`
+        );
+        if (optionToRemove) {
+          optionToRemove.remove();
+        }
+      }
+      projectBtn.remove();
+      removeProjectBtn.remove();
+    });
+
     projectBtn.classList.add("li");
     projectBtn.textContent = project.name;
     projectBtn.addEventListener("click", () => renderProjectTasks(project)); // Wrap in anonymous function
-    projectContent.appendChild(projectBtn);
+    projectContent.append(projectBtn, removeProjectBtn);
   });
 }
 
@@ -147,8 +173,51 @@ function renderProjectTasks(project) {
     li.dataset.id = task.id; // Store task id in data attribute
     taskList.appendChild(li);
 
-    editTask(li);
+    // editTask(li);
     removeTask(li);
   });
 }
-export { render, renderProjects, renderProjectTasks };
+
+function renderAllTasks() {
+  const allTasks = [];
+
+  tasks.forEach((task) => {
+    if (!allTasks.some((t) => t.id === task.id)) {
+      allTasks.push(task);
+    }
+  });
+
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      if (!allTasks.some((t) => t.id === task.id)) {
+        allTasks.push(task);
+      }
+    });
+  });
+
+  const taskList = document.querySelector(".add-task");
+  taskList.innerHTML = ""; // Clear existing list items
+
+  allTasks.forEach((task) => {
+    const li = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    li.appendChild(checkbox);
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        taskContent.style.textDecoration = "line-through";
+      } else {
+        taskContent.style.textDecoration = "none";
+      }
+    });
+    const taskContent = document.createElement("span");
+    taskContent.innerHTML = `${task.title} | <strong>Priority:</strong> ${task.priority} | <strong>Due:</strong> ${task.due} | <strong>Notes:</strong> ${task.notes}`;
+    li.appendChild(taskContent);
+    li.dataset.id = task.id; // Store task id in data attribute
+    taskList.appendChild(li);
+
+    // editTask(li);
+    removeTask(li);
+  });
+}
+export { render, renderProjects, renderProjectTasks, renderAllTasks };

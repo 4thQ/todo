@@ -1,4 +1,9 @@
-import { render, renderProjects, renderProjectTasks } from "./render";
+import {
+  render,
+  renderProjects,
+  renderProjectTasks,
+  renderAllTasks,
+} from "./render";
 
 function Dialog() {
   const dialog = document.querySelector(".dialog");
@@ -19,7 +24,16 @@ function Dialog() {
 
   const submitBtn = document.querySelector(".submit-btn");
   submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent form submission by default
+    const taskForm = document.querySelector(".task-form");
+
+    // Check if the form is valid
+    if (!taskForm.checkValidity()) {
+      taskForm.reportValidity(); // Display the browser's default validation messages
+      return; // Stop further execution if form is invalid
+    }
+
+    // If the form is valid, proceed with rendering
     render();
     dialog.close();
   });
@@ -33,6 +47,15 @@ function Dialog() {
   const submitProjectBtn = document.querySelector(".submit-project-btn");
   submitProjectBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    const projectForm = document.querySelector(".project-form");
+
+    // Check if the form is valid
+    if (!projectForm.checkValidity()) {
+      projectForm.reportValidity(); // Show validation errors
+      return; // Stop further execution if form is invalid
+    }
+
+    // If valid, proceed with adding the project
     renderProjects();
     projectDialog.close();
   });
@@ -41,6 +64,12 @@ function Dialog() {
   cancelBtn.addEventListener("click", (e) => {
     e.preventDefault();
     projectDialog.close();
+  });
+
+  const allTasks = document.querySelector(".all-tasks-btn");
+  allTasks.addEventListener("click", (e) => {
+    e.preventDefault();
+    renderAllTasks();
   });
 }
 

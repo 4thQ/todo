@@ -87,9 +87,17 @@ body {
 /* project btn */
 .li {
   border: 2px solid rgb(0, 0, 0);
-  display: block;
+  display: inline;
   margin-bottom: 3px;
-  width: 100%;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-project-btn {
+  border: 2px solid rgb(0, 0, 0);
+  margin-left: 3px;
 }
 
 .add-project-btn {
@@ -122,11 +130,11 @@ body {
 li {
   display: flex;
 }
-.edit-btn {
+/* .edit-btn {
   margin-left: auto;
-}
+} */
 .delete-btn {
-  margin-left: 4px;
+  margin-left: auto;
 }
 
 .delete-btn:hover,

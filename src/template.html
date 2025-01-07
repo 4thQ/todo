@@ -13,7 +13,7 @@
 
       <div class="nav-bar">
         <button class="add-task-btn">+</button>
-        <button class="today-btn">Today</button>
+        <button class="all-tasks-btn">All Tasks</button>
         <button class="upcoming-btn">Upcoming</button>
         <button class="completed-btn">Completed</button>
       </div>
@@ -21,7 +21,12 @@
       <div class="project-bar">
         <dialog class="project-dialog">
           <form class="project-form">
-            <input type="text" name="project-name" placeholder="Project Name" />
+            <input
+              type="text"
+              name="project-name"
+              placeholder="Project Name"
+              required
+            />
             <button type="submit" class="submit-project-btn">
               Submit Project</button
             ><button class="cancel-btn">Cancel</button>
@@ -67,6 +72,7 @@
           type="text"
           class="input-title"
           placeholder="Enter task title"
+          required
         /><br />
         <label for="task-priority" class="task-priority">Priority:</label><br />
         <select name="task-priority">
@@ -83,7 +89,7 @@
           <option value="none">Empty</option></select
         ><br />
         <label for="task-due" class="task-due">Schedule:</label><br />
-        <input name="task-due" type="date" /><br />
+        <input name="task-due" type="date" required /><br />
         <label for="task-notes" class="task-notes">Notes:</label><br />
         <textarea
           name="task-notes"

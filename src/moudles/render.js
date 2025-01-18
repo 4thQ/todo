@@ -4,7 +4,8 @@ function render() {
   addTaskToList();
 
   const taskList = document.querySelector(".add-task");
-  taskList.innerHTML = ""; // Clear existing list items
+  //Clears exisitng form
+  taskList.innerHTML = "";
 
   tasks.forEach((task) => {
     const li = document.createElement("li");
@@ -21,7 +22,8 @@ function render() {
     const taskContent = document.createElement("span");
     taskContent.innerHTML = `${task.title} | <strong>Priority:</strong> ${task.priority} | <strong>Due:</strong> ${task.due} | <strong>Notes:</strong> ${task.notes}`;
     li.appendChild(taskContent);
-    li.dataset.id = task.id; // Store task id in data attribute
+    li.dataset.id = task.id; 
+    // Store task id in data attribute
     taskList.appendChild(li);
 
     // editTask(li);
@@ -55,7 +57,8 @@ function addTaskToList() {
 
   tasks.push(task);
   saveToLocalStorage();
-  taskForm.reset(); // Clear the form
+  taskForm.reset(); 
+  // Clear the form
 }
 
 function removeTask(li) {
@@ -100,7 +103,8 @@ function addProjectToList() {
 }
 function addProjectToOption() {
   const projectDropdown = document.querySelector(".project-dropdown");
-  projectDropdown.innerHTML = ""; // Clear existing list items
+  projectDropdown.innerHTML = ""; 
+  // Clear existing list items
 
   projects.forEach((project) => {
     const projectName = document.querySelector(".project-dropdown");
@@ -118,7 +122,8 @@ function renderProjects() {
   addProjectToOption();
 
   const projectContent = document.querySelector(".project-content");
-  projectContent.innerHTML = ""; // Clear existing list items
+  projectContent.innerHTML = ""; 
+  // Clear existing list items
 
   projects.forEach((project) => {
     const projectBtn = document.createElement("button");
